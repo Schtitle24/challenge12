@@ -1,22 +1,20 @@
 // config/connection.js
-
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-  // If running on Heroku (production), use the JAWSDB_URL environment variable
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
-  // If running locally or in any other environment, use the local MySQL database
   sequelize = new Sequelize(
-    process.env.DB_NAME || 'blog_db',
-    process.env.DB_USER || 'root',
-    process.env.DB_PASSWORD || 'your_password',
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     {
-      host: process.env.DB_HOST || 'localhost',
+      host: 'localhost',
       dialect: 'mysql',
-      port: process.env.DB_PORT || 3306
+      port: 3306
     }
   );
 }

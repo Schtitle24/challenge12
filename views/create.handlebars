@@ -1,0 +1,23 @@
+{{!-- Import the main layout --}}
+{{> layouts/main}}
+
+{{!-- Set the title of the page --}}
+{{#block "title"}}Create Post{{/block}}
+
+{{!-- Set the main content of the page --}}
+{{#block "content"}}
+<div class="container">
+    <h2>Create a New Post</h2>
+    <form id="create-form" action="/api/posts" method="POST">
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+</div>
+{{/block}}
